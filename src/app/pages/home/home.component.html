@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="font-weight-light">Bienvenido a peliculas app</h1>
+           <br>
+        </div>
+    </div>
+    
+    <app-galeria [peliculas]="cartelera|slice:0:4" titulo="Cartelera"></app-galeria>
+    <hr>
+    <app-galeria [peliculas]="populares|slice:0:4" titulo="Populares"></app-galeria>
+    <app-galeria [peliculas]="popularesNino|slice:0:4" titulo="Niños"></app-galeria>
+</div>
