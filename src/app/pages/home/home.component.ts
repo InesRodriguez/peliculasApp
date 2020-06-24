@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(private peliculasService: PeliculasService) { }
 
   ngOnInit(): void {
-    this.peliculasService.getPopulares().subscribe((resp: any) => this.populares = resp.results)
+    this.peliculasService.getPopulares().subscribe((resp: any) => {this.populares = resp.results; console.log(resp.results)})
     this.peliculasService.getCartelera().subscribe((resp: any) => this.cartelera = resp.results)
     this.peliculasService.getPopularesNinos().subscribe((resp: any) => this.popularesNino = resp.results)
   }

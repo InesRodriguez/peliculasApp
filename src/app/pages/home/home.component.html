@@ -6,8 +6,9 @@
         </div>
     </div>
     
-    <app-galeria [peliculas]="cartelera|slice:0:4" titulo="Cartelera"></app-galeria>
+    <app-galeria [peliculas]="cartelera|slice:0:4" titulo="Cartelera" color=" border-primary"></app-galeria>
     <hr>
-    <app-galeria [peliculas]="populares|slice:0:4" titulo="Populares"></app-galeria>
-    <app-galeria [peliculas]="popularesNino|slice:0:4" titulo="Niños"></app-galeria>
+    <app-galeria [peliculas]="populares|slice:0:4" titulo="Populares" color="border-success"></app-galeria>
+    <hr>
+    <app-galeria [peliculas]="popularesNino|slice:0:4" titulo="Niños" color="border-danger"></app-galeria>
 </div>

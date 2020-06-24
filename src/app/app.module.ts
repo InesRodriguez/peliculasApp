@@ -9,7 +9,7 @@ import { SearchComponent } from './pages/search/search.component';
 import { PeliculaComponent } from './pages/pelicula/pelicula.component';
 import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
 import { GaleriaComponent } from './pages/home/galeria.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +24,8 @@ import { GaleriaComponent } from './pages/home/galeria.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

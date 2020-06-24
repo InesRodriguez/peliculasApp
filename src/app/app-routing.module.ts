@@ -8,12 +8,14 @@ import { PeliculaComponent } from './pages/pelicula/pelicula.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'pelicula', component: PeliculaComponent },
+  { path: 'search/:texto', component: SearchComponent },
+  { path: 'pelicula/:id/:pag', component: PeliculaComponent },
+  { path: 'pelicula/:id/:pag/:busqueda', component: PeliculaComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

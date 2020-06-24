@@ -8,6 +8,7 @@ export class PeliculasService {
   private apiKey: string = 'ec3d80b682cf0d5ad1b539f6540d28aa';
   private urlMovieDb: string = 'https://api.themoviedb.org/3';
   private paramasGral: string = '&language=es&sort_by=popularity.desc&callback=JSONP_CALLBACK';
+  peliculas: any[] = [];
   constructor(private http: HttpClient) {
 
   }
@@ -29,7 +30,7 @@ export class PeliculasService {
       )
   }
   getPopulares() {
-    return this.http.jsonp(`${this.urlMovieDb}/discover/movie?api_key=${this.apiKey}${this.paramasGral}`, 'callbck')
+    return this.http.jsonp(`${this.urlMovieDb}/discover/movie?api_key=${this.apiKey}&include_adult=true${this.paramasGral}`, 'callbck')
       .pipe(
         map(resp => {
           return resp
@@ -48,7 +49,22 @@ export class PeliculasService {
 
       );
   }
-  buscarPelicula(query = "osos") {
-    return this.http.jsonp(`${this.urlMovieDb}/search/movie?api_key=${this.apiKey}&query=${query}`, 'callback');
+  buscarPelicula(query: string) {
+    return this.http.jsonp(`${this.urlMovieDb}/search/movie?api_key=${this.apiKey}&query=${query}`, 'callback')
+      .pipe(
+        map(resp => {
+          return resp;
+        })
+      );
+  }
+  getPelicula(id: string) {
+    return this.http.jsonp(`${this.urlMovieDb}/movie/${id}?&api_key=${this.apiKey}${this.paramasGral}`, 'callbck')
+      .pipe(
+        map(resp => {
+          return resp
+          console.log(resp)
+        })
+
+      );
   }
 }

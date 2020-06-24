@@ -1,12 +1,16 @@
 <h3>{{titulo}}</h3>
 <div *ngIf="peliculas">
     <div class="card-deck">
-        <div *ngFor="let item of peliculas; let i = index">
-            <div  class="card bg-light card-brd p-1">
-                <img width="auto" [src]="item | peliculaImagen" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text text-center font-weight-bolder">{{item.title}}</p>
-                </div>
+        <div class="card  card-brd p-1 puntero" 
+            *ngFor="let item of peliculas; let i = index" 
+            [ngClass]="color" 
+            [routerLink]="['/pelicula', item.id, 'home']">
+            <img [src]="item | peliculaImagen" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-title font-weight-light">{{item.title}}</p>
+                <span>{{item.overview |slice:0:150}}</span><span> ...</span>
+                
+                <button type="button" class=" mt-2 btn btn-outline-primary btn-block">ver mas...</button>
             </div>
         </div>
     </div>
